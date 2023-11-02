@@ -13,8 +13,8 @@ const routes = [
   {
     method: "GET",
     auth: "basic",
-    path: "/dowload-pdf",
-    description: "Form dowload pdf",
+    path: "/download-pdf",
+    description: "Form download pdf",
     ...FormActions.downloadPdf
   },
 ];
