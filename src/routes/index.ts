@@ -1,7 +1,7 @@
 import express from "express";
 import formRoutes from "../endpoints/form";
 import { includeRoutePrefix } from "./includeRoutePrefix";
-
+import { basicAuth } from "../middlewares/basicAuth";
 
 const router = express.Router();
 
@@ -11,10 +11,7 @@ for (const route of routes) {
   const { action, path, method, auth, middlewares = [] } = route;
 
   if (auth === "basic") {
-    middlewares.unshift((req, res, next) => {
-      console.log("Autenticação básica");
-      return next();
-    });
+    middlewares.unshift(basicAuth);
   }
 
   if (auth === "bearer") {
