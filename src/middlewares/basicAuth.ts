@@ -12,7 +12,7 @@ export function basicAuth(req: Request, res: Response, next: NextFunction) {
 
     if (!/Basic/i.test(scheme)) throw new Error("Token bad formatted");
 
-    if (token !== process.env.basicToken)
+    if (token !== process.env.BASIC_AUTH)
       throw new Error("Credentials not valid");
 
     return next();
